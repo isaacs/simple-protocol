@@ -1,6 +1,6 @@
 {
   "name": "simple-protocol",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A very simple json-header-and-body protocol",
   "main": "index.js",
   "scripts": {
