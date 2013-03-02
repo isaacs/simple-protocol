@@ -1,0 +1,15 @@
+{
+  "name": "simple-protocol",
+  "version": "0.0.0",
+  "description": "A very simple json-header-and-body protocol",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "devDependencies": {
+    "tap": "0.4"
+  },
+  "repository": "git://github.com/isaacs/simple-protocol",
+  "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
+  "license": "BSD"
+}
