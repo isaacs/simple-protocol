@@ -1,23 +1,7 @@
 module.exports = Incoming;
 
 var util = require('util');
-
-var Transform;
-switch (process.version.match(/v([0-9]+\.[0-9]+)\.[0-9]+/)[1]) {
-  case '0.0': case '0.1':
-  case '0.2': case '0.3':
-  case '0.4': case '0.5':
-  case '0.6': case '0.7':
-    throw new Error('your node is too old and crusty for this hotness');
-
-  case '0.8':
-    Transform = require('readable-stream/transform.js');
-    break;
-
-  default:
-    Transform = require('stream').Transform;
-    break;
-}
+var Transform = require('./transform');
 
 util.inherits(Incoming, Transform);
 function Incoming(options) {
