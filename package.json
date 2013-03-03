@@ -11,5 +11,8 @@
   },
   "repository": "git://github.com/isaacs/simple-protocol",
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
-  "license": "BSD"
+  "license": "BSD",
+  "dependencies": {
+    "readable-stream": "~0.3.1"
+  }
 }
