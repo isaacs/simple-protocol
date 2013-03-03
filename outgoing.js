@@ -3,7 +3,6 @@ module.exports = Outgoing;
 var util = require('util');
 
 var Transform;
-var Readable;
 switch (process.version.match(/v([0-9]+\.[0-9]+)\.[0-9]+/)[1]) {
   case '0.0': case '0.1':
   case '0.2': case '0.3':
@@ -12,13 +11,11 @@ switch (process.version.match(/v([0-9]+\.[0-9]+)\.[0-9]+/)[1]) {
     throw new Error('your node is too old and crusty for this hotness');
 
   case '0.8':
-    Readable = require('readable-stream');
     Transform = require('readable-stream/transform.js');
     break;
 
   default:
     Transform = require('stream').Transform;
-    Readable = require('stream').Readable;
     break;
 }
 
