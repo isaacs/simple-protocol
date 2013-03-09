@@ -33,24 +33,24 @@ function Outgoing(options) {
   this.header = {};
 }
 
-Outgoing.prototype._transform = function(chunk, output, done) {
+Outgoing.prototype._transform = function(chunk, encoding, done) {
   if (!this._sentHeader)
-    this._sendHeader(chunk, output, done);
+    this._sendHeader(chunk, encoding, done);
   else {
-    output(chunk);
+    this.push(chunk);
     done();
   }
 };
 
-Outgoing.prototype._sendHeader = function(chunk, output, done) {
+Outgoing.prototype._sendHeader = function(chunk, encoding, done) {
   if (this._sentHeader) {
     this.emit('error', new Error('header already sent'));
   } else {
     try {
       var h = JSON.stringify(this.header) + '\n\n';
-      output(new Buffer(h));
+      this.push(new Buffer(h));
       this._sentHeader = true;
-      output(chunk);
+      this.push(chunk);
       done();
     } catch (er) {
       this.emit('error', er);
