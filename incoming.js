@@ -34,7 +34,7 @@ function Incoming(options) {
   this.header = null;
 }
 
-Incoming.prototype._transform = function(chunk, output, done) {
+Incoming.prototype._transform = function(chunk, encoding, done) {
   if (!this._inBody) {
     // check if the chunk has a \n\n
     var split = -1;
@@ -71,11 +71,11 @@ Incoming.prototype._transform = function(chunk, output, done) {
 
       // now, because we got some extra data, emit this first.
       var b = chunk.slice(split + 1);
-      output(b);
+      this.push(b);
     }
   } else {
     // from there on, just provide the data to our consumer as-is.
-    output(chunk);
+    this.push(chunk);
   }
   done();
 };
