@@ -7,6 +7,7 @@
     "test": "tap test/*.js"
   },
   "devDependencies": {
+    "readable-stream": "1.0.0",
     "tap": "0.4"
   },
   "repository": "git://github.com/isaacs/simple-protocol",
